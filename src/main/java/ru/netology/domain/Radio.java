@@ -34,9 +34,8 @@ public class Radio {
         return currentStation;
     }
 
-    public int setCurrentVolume(int currentVolume) {
+    public void setCurrentVolume(int currentVolume) {
         this.currentVolume = currentVolume;
-        return currentVolume;
     }
 
     public int increaseVolume() {
