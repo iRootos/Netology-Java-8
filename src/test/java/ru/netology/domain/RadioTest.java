@@ -1,49 +1,50 @@
 package ru.netology.domain;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
-    Radio radio = new Radio();
 
-    @ParameterizedTest
-    @CsvFileSource(resources = {"/DataTestCurrentStation.csv"})
-    void setCurrentStation(int currentStation, int expected) {
-        radio.setCurrentStation(currentStation);
+    Radio radio = new Radio(20);
+
+    @Test
+    void setCurrentStation() {
+        radio.setCurrentStation(20);
+        int expected = 19;
         int actual = radio.getCurrentStation();
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = {"/DataTestIncreaseVolume.csv"})
-    void increaseVolume(int currentVolume, int expected) {
-        radio.setCurrentVolume(currentVolume);
+
+    @Test
+    void increaseVolume() {
+        radio.setCurrentVolume(100);
+        int expected = 100;
         int actual = radio.increaseVolume();
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = {"/DataTestDecreaseVolume.csv"})
-    void decreaseVolume(int currentVolume, int expected) {
-        radio.setCurrentVolume(currentVolume);
+    @Test
+    void decreaseVolume() {
+        radio.setCurrentVolume(0);
+        int expected = 0;
         int actual = radio.decreaseVolume();
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = {"/DataTestNextStation.csv"})
-    void nextStation(int currentStation, int expected) {
-        radio.setCurrentStation(currentStation);
+    @Test
+    void nextStation() {
+        radio.setCurrentStation(19);
+        int expected = 0;
         int actual = radio.nextStation();
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = {"/DataTestPreviousStation.csv"})
-    void previousStation(int currentStation, int expected) {
-        radio.setCurrentStation(currentStation);
+    @Test
+    void previousStation() {
+        radio.setCurrentStation(0);
+        int expected = 19;
         int actual = radio.previousStation();
         assertEquals(expected, actual);
     }
