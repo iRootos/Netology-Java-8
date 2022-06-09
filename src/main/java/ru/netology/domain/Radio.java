@@ -55,6 +55,10 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
     public int increaseVolume() {
         if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
